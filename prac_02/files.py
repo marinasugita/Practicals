@@ -13,3 +13,4 @@ first_number = in_file.readline()
 second_number = in_file.readline()
 print(int(first_number) + int(second_number))
 in_file.close()
+
