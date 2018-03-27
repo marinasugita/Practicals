@@ -8,16 +8,17 @@ PICKS_PER_ROW = 6
 def main():
     number_of_quick_picks = int(input("How many picks? "))
     for number in range(number_of_quick_picks):
-        quick_picks = []
-        for line in range(PICKS_PER_ROW):
+        quick_pick = []
+        for i in range(PICKS_PER_ROW):
             random_number = random.randint(MINIMUM, MAXIMUM)
-            while random_number in quick_picks:
+            while random_number in quick_pick:
                 random_number = random.randint(MINIMUM, MAXIMUM)
-            quick_picks.append(random_number)
-        quick_picks.sort()
-        print(
-            "{:>3} {:>3} {:>3} {:>3} {:>3} {:>3}".format(quick_picks[0], quick_picks[1], quick_picks[2], quick_picks[3],
-                                                         quick_picks[4], quick_picks[5]))
+            quick_pick.append(random_number)
+        quick_pick.sort()
+        print("{:>3} {:>3} {:>3} {:>3} {:>3} {:>3}".format(*quick_pick))
+        # print(
+        #     "{:>3} {:>3} {:>3} {:>3} {:>3} {:>3}".format(quick_pick[0], quick_pick[1], quick_pick[2], quick_pick[3],
+        #                                                  quick_pick[4], quick_pick[5]))
 
 
 main()
