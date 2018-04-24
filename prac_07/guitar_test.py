@@ -13,10 +13,10 @@ def run_tests():
     assert guitar2.get_age() == 6, "get_age is broken"
 
     print("{} is_vintage() - Expected True. Got {}".format(guitar.name, guitar.is_vintage()))
-    assert guitar.is_vintage() == True, "is_vintage is broken"
+    assert guitar.is_vintage(), "is_vintage is broken"
 
     print("{} is_vintage() - Expected False. Got {}".format(guitar2.name, guitar2.is_vintage()))
-    assert guitar2.is_vintage() == False, "is_vintage is broken"
+    assert not guitar2.is_vintage(), "is_vintage is broken"
 
 
 run_tests()
