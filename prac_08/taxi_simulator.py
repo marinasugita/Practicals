@@ -11,6 +11,7 @@ MENU = "q)uit, c)hoose taxi, d)rive"
 def main():
     total_bill = 0
     taxis = [Taxi("Pruis", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
+    taxi = None
     print("Let's drive!")
     print(MENU)
     menu_choice = input("").upper()
@@ -20,12 +21,15 @@ def main():
             taxi_choice = int(input("Choose taxi: "))
             taxi = taxis[taxi_choice]
         elif menu_choice == "D":
-            distance_to_drive = int(input("Drive how far? "))
-            taxi.start_fare()
-            taxi.drive(distance_to_drive)
-            cost = taxi.get_fare()
-            print("Your {} trip cost you ${:.2f}".format(taxi.name, cost))
-            total_bill += cost
+            if taxi:
+                distance_to_drive = int(input("Drive how far? "))
+                taxi.start_fare()
+                taxi.drive(distance_to_drive)
+                cost = taxi.get_fare()
+                print("Your {} trip cost you ${:.2f}".format(taxi.name, cost))
+                total_bill += cost
+            else:
+                print("Please choose a taxi first")
         else:
             print("Invalid menu choice")
         print("Bill to date: ${:.2f}".format(total_bill))
