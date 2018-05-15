@@ -18,7 +18,6 @@ def main():
 
     # Make a new directory
     # The next time you run this, it will crash if the directory exists
-    # TODO: Use exception handling to avoid the crash (just pass)
     try:
         os.mkdir('temp')
     except FileExistsError:
@@ -33,7 +32,6 @@ def main():
         new_name = get_fixed_filename(filename)
         print("Renaming {} to {}".format(filename, new_name))
 
-        # TODO: Try these options one at a time
         # Option 1: rename file to new name - in place
         # os.rename(filename, new_name)
 
@@ -49,17 +47,16 @@ def main():
         print("\tand files:", filenames)
         print("(Current working directory is: {})".format(os.getcwd()))
 
-        # TODO: change into the directory and print the current working directory
         # then change back to the lyrics_path
         # Note: if you get this wrong, walk will stop short,
         # so you need to check it still walks through all subdirectories
         os.chdir(directory_name)
-
-        # TODO: add a loop (in between directory changes) to rename the files
+        print("(Current working directory is: {})".format(os.getcwd()))
         for filename in filenames:
             new_name = get_fixed_filename(filename)
             print("Renaming {} to {}".format(filename, new_name))
             os.rename(filename, new_name)
+        os.chdir(lyrics_path)
 
 
 def get_fixed_filename(filename):
