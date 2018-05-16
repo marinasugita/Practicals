@@ -34,7 +34,7 @@ def main():
         for filename in filenames:
             new_name = get_fixed_filename(filename)
             print("Renaming {} to {}".format(filename, new_name))
-            os.rename(filename, new_name)
+            # os.rename(filename, new_name)
         os.chdir(lyrics_path)
 
 
